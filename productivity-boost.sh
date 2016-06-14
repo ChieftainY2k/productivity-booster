@@ -1,7 +1,9 @@
 #!/bin/bash
 
 
-HOSTSFILE=/etc/hosts #linux
+#HOSTSFILE=/etc/hosts #linux
+HOSTSFILE=/cygdrive/c/Windows/System32/drivers/etc/hosts #windows CYGWIN
+
 TMPFILE=/tmp/hosts.tmp #temp file
 
 if [ -z "$1" ]
@@ -17,7 +19,7 @@ if [ "$1" == "on" ] ; then
 
     #turn it on
 
-    sed 's/\(.*\) #prodboost/#prodboost \1/g' $HOSTSFILE > $TMPFILE
+    sed 's/#prodboost \(.*\)/\1 #prodboost/g' $HOSTSFILE > $TMPFILE
     mv $TMPFILE $HOSTSFILE
 
     echo "Productivity booster turned on.";
@@ -28,7 +30,7 @@ else
 
         #turn it off
 
-        sed 's/#prodboost \(.*\)/\1 #prodboost/g' $HOSTSFILE > $TMPFILE
+        sed 's/\(.*\) #prodboost/#prodboost \1/g' $HOSTSFILE > $TMPFILE
         mv $TMPFILE $HOSTSFILE
 
         echo "Productivity booster turned off.";
