@@ -11,11 +11,15 @@ Linux:
 ````
 #prodboost 0.0.0.0 some.distraction.domain 
 ````
+
 For example: 
 `````
-#prodboost 0.0.0.0 reddit.com 
-#prodboost 0.0.0.0 twitter.com 
-#prodboost 0.0.0.0 facebook.com 
+#prodboost 0.0.0.0 reddit.com
+#prodboost 0.0.0.0 www.reddit.com
+#prodboost 0.0.0.0 twitter.com
+#prodboost 0.0.0.0 www.twitter.com
+#prodboost 0.0.0.0 facebook.com
+#prodboost 0.0.0.0 www.facebook.com
 `````
 
 
