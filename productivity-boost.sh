@@ -1,7 +1,8 @@
 #!/bin/bash
 
 
-HOSTSFILE=./hosts
+HOSTSFILE=/etc/hosts #linux
+TMPFILE=/tmp/hosts.tmp #temp file
 
 if [ -z "$1" ]
 then
@@ -10,22 +11,30 @@ then
 fi
 
 #backup
-cp $HOSTSFILE $HOSTSFILE.bak
+cp $HOSTSFILE /tmp/hosts.bak
 
 if [ "$1" == "on" ] ; then
 
     #turn it on
-    sed 's/\(.*\) #prodboost/#prodboost \1/g' $HOSTSFILE > $HOSTSFILE.tmp
-    mv $HOSTSFILE.tmp $HOSTSFILE
+
+    sed 's/\(.*\) #prodboost/#prodboost \1/g' $HOSTSFILE > $TMPFILE
+    mv $TMPFILE $HOSTSFILE
+
+    echo "Productivity booster turned on.";
 
 else
 
     if [ "$1" == "off" ] ; then
 
         #turn it off
-        sed 's/#prodboost \(.*\)/\1 #prodboost/g' $HOSTSFILE > $HOSTSFILE.tmp
-        mv $HOSTSFILE.tmp $HOSTSFILE
+
+        sed 's/#prodboost \(.*\)/\1 #prodboost/g' $HOSTSFILE > $TMPFILE
+        mv $TMPFILE $HOSTSFILE
+
+        echo "Productivity booster turned off.";
 
     fi
 fi
 
+#remove temp file
+rm -f TMPFILE
