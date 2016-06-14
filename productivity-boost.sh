@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-#HOSTSFILE=/etc/hosts #linux
-HOSTSFILE=/cygdrive/c/Windows/System32/drivers/etc/hosts #windows CYGWIN
+HOSTSFILE=/etc/hosts #linux
+#HOSTSFILE=/cygdrive/c/Windows/System32/drivers/etc/hosts #windows CYGWIN
 
 TMPFILE=/tmp/hosts.tmp #temp file
 
